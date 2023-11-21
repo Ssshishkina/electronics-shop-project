@@ -29,14 +29,14 @@ def name(self, name: str):
 
 @classmethod
 def instantiate_from_csv(cls, filename) -> None:
-        Item.all.clear()
+    Item.all.clear()
     with open(filename, newline='', encoding='windows-1251') as csvfile:
-            file_reader = csv.DictReader(csvfile, delimiter = ",")
+        file_reader = csv.DictReader(csvfile, delimiter = ",")
         for line in file_reader:
-                name = line['name']
-                price = int(line['price'])
-                quantity = int(line['quantity'])
-                cls(name, price, quantity)
+            name = line['name']
+            price = int(line['price'])
+            quantity = int(line['quantity'])
+            cls(name, price, quantity)
 
 @staticmethod
 def string_to_number(num_string: str) -> int:
