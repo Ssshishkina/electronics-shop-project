@@ -22,6 +22,18 @@ def test_item():
     assert Item.all == [item1, item2]
 
 
+def test_repr():
+    """Тест для __repr__"""
+    item1 = Item("Смартфон, 1000, 20")
+    assert repr(item1) == "Item('Смартфон', 1000, 20)"
+
+
+def test_str():
+    """Тест для __str__"""
+    item1 = Item('Смартфон, 1000, 20')
+    assert str(item1) == 'Смартфон'
+
+
 def test_instantiate_from_csv():
     Item.instantiate_from_csv("src/items.csv")
     assert len(Item.all) == 5
