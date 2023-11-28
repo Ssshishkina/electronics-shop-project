@@ -1,5 +1,8 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
+import os
+os.path.join('src', 'items.csv')
 from src.item import Item
+from src.phone import Phone
 
 
 def test_item():
