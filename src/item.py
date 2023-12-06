@@ -2,10 +2,12 @@ import csv
 import os
 os.path.join('src', 'items.csv')
 
+
 class Item:
     """ Класс для представления товара в магазине."""
     pay_rate = 1.0
     all = []
+
     def __init__(self, name: str, price: float, quantity: int) -> None:
         """
         Создание экземпляра класса item.
@@ -14,15 +16,16 @@ class Item:
         :param price: Цена за единицу товара.
         :param quantity: Количество товара в магазине.
         """
+        super().__init__()
         self.__name = name
         self.price = price
         self.quantity = quantity
         self.all.append(self)
 
-
     def __repr__(self):
         return f"{self.__class__.__name__}('{self.__name}', {self.price}, {self.quantity})"
-    def __str__(selfself):
+
+    def __str__(self):
         return f'{self.__name}'
 
     @property
@@ -37,7 +40,7 @@ class Item:
     def instantiate_from_csv(cls, filename) -> None:
         Item.all.clear()
         with open(filename, newline='', encoding='windows-1251') as csvfile:
-            file_reader = csv.DictReader(csvfile, delimiter = ",")
+            file_reader = list(csv.DictReader(csvfile, delimiter = ","))
             for line in file_reader:
                 name = line['name']
                 price = int(line['price'])
